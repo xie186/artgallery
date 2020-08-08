@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load taggit_templatetags2_tags %}
+
+{% block content %}
+
+
+{% for artwork in object_list %}
+    <li> {{ artwork.name }}<li>	    
+    <a href="#"><img alt="#" src="{% url  %}" class="img-plant"></a>
+    
+   
+{% empty %}
+    <li>No Art work yet.</li>
+{% endfor %}
+
+
+{% endblock %}
+
