@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery Content Filter Example</title>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+body {
+  margin: 0;
+  min-height: 1200px;
+  background-color: #fafafa;
+}
+
+.filter a {
+  padding: 10px 20px;
+  display: inline-block;
+  color: #003;
+  background: #eee;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 9px
+}
+
+.filter a:hover { background: #8ad }
+
+.filter {
+  padding: 50px;
+  text-align: center
+}
+
+.gallery a img {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.gallery a {
+  width: 33.33%;
+  transition: all 0.2s;
+  display: block;
+  float: left;
+  opacity: 1;
+  height: auto;
+}
+
+.gallery .hide, .gallery .pophide {
+  width: 0%;
+  opacity: 0;
+  transition: all 0.1s;
+}
+
+.gallery .pop {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0px 1000px rgba(0,0,0,0.5);
+}
+
+.pop:after {
+  content: "\00D7";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #333;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.pop:hover:after { opacity: 1 }
+</style>
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/gallery/Gallery-Content-Filter-With-jQuery-CSS3.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1 style="margin-top:150px; text-align:center;">Gallery Content Filter Example</h1>
+<div class="filter" style="margin-top:30px;"> <a href="#all">ALL</a> <a href="#cats">CATS</a> <a href="#food">Food</a> <a href="#animals">Animals</a> </div>
+<div class="gallery"> <a href="#" class="cats" ><img src="http://lorempixel.com/640/480/cats/1"></a> <a href="#" class="animals"><img src="http://lorempixel.com/640/480/animals/1"></a> <a href="#" class="cats" ><img src="http://lorempixel.com/640/480/cats/2"></a> <a href="#" class="cats" ><img src="http://lorempixel.com/640/480/cats/3"></a> <a href="#" class="food" ><img src="http://lorempixel.com/640/480/food/1"></a> <a href="#" class="food" ><img src="http://lorempixel.com/640/480/food/2"> <a href="#" class="animals" ><img src="http://lorempixel.com/640/480/animals/2"></a> <a href="#" class="food" ><img src="http://lorempixel.com/640/480/food/3"></a> <a href="#" class="animals" ><img src="http://lorempixel.com/640/480/animals/3"></a> </div>
+<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> 
+<script>
+
+$('.filter a').click(function(e) {
+  e.preventDefault();
+  var a = $(this).attr('href');
+  a = a.substr(1);
+  $('.gallery a').each(function() {
+    if (!$(this).hasClass(a) && a != 'all')
+      $(this).addClass('hide');
+    else
+      $(this).removeClass('hide');
+  });
+
+});
+
+$('.gallery a').click(function(e) {
+  e.preventDefault();
+  var $i = $(this);
+  $('.gallery a').not($i).toggleClass('pophide');
+  $i.toggleClass('pop');
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
+
